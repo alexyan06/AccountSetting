@@ -7,11 +7,6 @@ import NewsPanel from "../components/NewsPanel";
 export default function NewsAndEventsPage() {
     const navigation = useNavigation();
 
-    const handleSubmit = () => {
-        console.log("Going to Map Page...");
-        navigation.navigate("React Native Maps");
-    };
-
     return (
         <View style={styles.container}>
             <Text style={styles.title}>ASP.NET + React Native Demo Project</Text>

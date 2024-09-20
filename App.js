@@ -14,7 +14,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="NewsAndEventsPage" // Temporarily setting this so that we can see our work!!
         screenOptions={{
           headerShown: true, // Set to false to hide header
         }}

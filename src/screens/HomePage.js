@@ -8,7 +8,8 @@ export default function HomePage() {
 
   const handleSubmit = () => {
     console.log("Going to Map Page...");
-    navigation.navigate("React Native Maps");
+    // navigation.navigate("React Native Maps");
+    navigation.navigate("NewsAndEventsPage")
   };
 
   return (

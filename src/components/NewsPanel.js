@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, Pressable, StyleSheet, Image } from "react-native";
+import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 
 const NewsPanel = ({ image, title, summary}) => {
     const handlePress = () => {
@@ -10,10 +10,12 @@ const NewsPanel = ({ image, title, summary}) => {
         <Pressable style={styles.panel} onPress={handlePress}>
             <Image
                 source={{ uri: image }}
-                style={{ width: 200, height: 200 }}
+                style={styles.image}
             />
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.summary}>{summary}</Text>
+            <View style={styles.textSection}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.summary}>{summary}</Text>
+            </View>
         </Pressable>
     );
 };
@@ -21,8 +23,15 @@ const NewsPanel = ({ image, title, summary}) => {
 const styles = StyleSheet.create({
     panel: {
         backgroundColor: "#38a169",
-        paddingVertical: 10,
-        paddingHorizontal: 50,
+        paddingBottom: 10,
+        paddingHorizontal: 0,
+        width: '100%',
+        marginVertical: 10,
+        marginHorizontal: 0
+    },
+    textSection: {
+        paddingVertical: 15,
+        paddingHorizontal: 20
     },
     title: {
         fontSize: 20, // Equivalent to text-2xl
@@ -30,6 +39,11 @@ const styles = StyleSheet.create({
     },
     summary: {
         fontSize: 12
+    },
+    image: {
+        width: '100%',
+        height: 125,
+        objectFit: 'cover'
     }
 });
 

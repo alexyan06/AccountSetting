@@ -14,7 +14,7 @@ const NewsPanel = ({ image, title, summary}) => {
             />
             <View style={styles.textSection}>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.summary}>{summary}</Text>
+                <Text numberOfLines={2} ellipsizeMode="tail" style={styles.summary}>{summary}</Text>
             </View>
         </Pressable>
     );
@@ -22,28 +22,37 @@ const NewsPanel = ({ image, title, summary}) => {
 
 const styles = StyleSheet.create({
     panel: {
-        backgroundColor: "#38a169",
+        borderWidth: 5,
+        borderColor: '#CDDDDE',
+        backgroundColor: "#065758",
         paddingBottom: 10,
         paddingHorizontal: 0,
         width: '100%',
         marginVertical: 10,
-        marginHorizontal: 0
+        marginHorizontal: 0,
+        borderRadius: 15,
+        height:175
     },
     textSection: {
-        paddingVertical: 15,
-        paddingHorizontal: 20
+        paddingTop: 10,
+        paddingHorizontal: 15
     },
     title: {
         fontSize: 20, // Equivalent to text-2xl
-        fontWeight: "semibold"
+        fontWeight: "bold",
+        color: '#FFFFFF',
+        paddingBottom: 5
     },
     summary: {
-        fontSize: 12
+        fontSize: 12,
+        color: '#CDDDDE',
     },
     image: {
         width: '100%',
-        height: 125,
-        objectFit: 'cover'
+        height: '50%',
+        objectFit: 'cover',
+        borderTopStartRadius:8,
+        borderTopRightRadius:8
     }
 });
 

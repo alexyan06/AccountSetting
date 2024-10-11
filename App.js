@@ -7,6 +7,7 @@ import HomePage from "./src/screens/HomePage";
 import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
+import IndividualNewsPage from "./src/screens/IndividualNewsPage";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="NewsAndEventsPage" // Temporarily setting this so that we can see our work!!
+        initialRouteName="IndividualNewsPage" // Temporarily setting this so that we can see our work!!
         screenOptions={{
           headerShown: true, // Set to false to hide header
         }}
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="React Native Maps" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />
         <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />
+        <Stack.Screen name = "IndividualNewsPage" component={IndividualNewsPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

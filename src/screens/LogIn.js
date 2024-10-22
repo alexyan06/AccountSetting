@@ -1,6 +1,54 @@
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+//export default GoogleSignInButton;
+
+//google button
+const GoogleSignInButton = () => {
+    useEffect(() => {
+        // Load the Google Sign-In script
+        const script = document.createElement('script');
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        script.onload = () => {
+            // Initialize Google Sign-In
+            google.accounts.id.initialize({
+                client_id: "YOUR_GOOGLE_CLIENT_ID", // Replace with your Google Client ID
+                callback: handleCredentialResponse,
+            });
+
+            // Render the Google Sign-In button
+            google.accounts.id.renderButton(
+                document.getElementById('buttonDiv'),
+                { theme: 'outline', size: 'large' }  // Customization attributes
+            );
+
+            // Optionally, show the One Tap dialog
+            google.accounts.id.prompt();
+        };
+
+        document.body.appendChild(script);
+
+        // Cleanup the script on component unmount
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    // Function to handle the Google response
+    const handleCredentialResponse = (response) => {
+        console.log('Encoded JWT ID token: ' + response.credential);
+    };
+
+    return (
+        <div>
+            <div id="buttonDiv"></div>
+        </div>
+    );
+};
+
+//export default GoogleSignInButton;
+//end of button
 
 export default function App() {
     const navigation = useNavigation();
@@ -16,6 +64,8 @@ export default function App() {
             navigation.navigate("verification")
         }
         else {
+
+
             Alert.alert('Invalid Credentials');
         }
     };
@@ -42,7 +92,7 @@ export default function App() {
             />
             <Button title="Login" onPress={handleLogin} />
 
-            <Text style = {styles.input}>Not registered yet? </Text>
+            <Text>Not registered yet? </Text>
             <Button title="Create Account" onPress={handleCreate} />
 
         </View>
@@ -73,4 +123,5 @@ const styles = StyleSheet.create({
     Button: {
         color: '#ec9a9a'
     }
+    #Login
 });

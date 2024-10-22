@@ -8,6 +8,7 @@ import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
 import LogIn from "./src/screens/LogIn";
+import verification from "./src/screens/verification";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ export default function App() {
         }}
       >
           <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="verification" component={verification} />
           <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="React Native Maps" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />

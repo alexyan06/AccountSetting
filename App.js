@@ -7,6 +7,7 @@ import HomePage from "./src/screens/HomePage";
 import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
+import LogIn from "./src/screens/LogIn";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -14,12 +15,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: true, // Set to false to hide header
         }}
       >
-        <Stack.Screen name="Home" component={HomePage} />
+          <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="React Native Maps" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />
         <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />

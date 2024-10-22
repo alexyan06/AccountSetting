@@ -123,5 +123,4 @@ const styles = StyleSheet.create({
     Button: {
         color: '#ec9a9a'
     }
-    #Login
 });

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, TextInput, Button, StyleSheet, Alert } from 'react-native';
 //export default GoogleSignInButton;
-
 //google button
 const GoogleSignInButton = () => {
     useEffect(() => {
@@ -76,6 +75,10 @@ export default function App() {
 
     return (
         <View style={styles.container}>
+            <Image
+                source={{ uri: 'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg' }} // URL of the image
+                style={styles.image}
+            />
             <Text style={styles.title}>Login or Sign Up</Text>
             <TextInput
                 style={styles.input}
@@ -109,6 +112,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
+        marginTop: 36,
         marginBottom: 24,
         color: '#020202',
     },
@@ -122,5 +126,11 @@ const styles = StyleSheet.create({
     },
     Button: {
         color: '#ec9a9a'
-    }
+    },
+    image: {
+        width: 100,  // Set the width
+        height: 100, // Set the height
+        resizeMode: 'cover',  // 'cover', 'contain', etc.
+        marginTop: -50,
+    },
 });

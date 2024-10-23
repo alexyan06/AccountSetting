@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 //export default GoogleSignInButton;
 
 //google button
@@ -90,8 +90,12 @@ export default function App() {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            <Button title="Login" onPress={handleLogin} />
+            
 
+                <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+            
             <Text>Not registered yet? </Text>
             <Button title="Create Account" onPress={handleCreate} />
 
@@ -120,7 +124,17 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         borderRadius: 5,
     },
-    Button: {
-        color: '#ec9a9a'
+    loginButton: {
+        backgroundColor: '#d06c64',
+        width: '80%',
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+    },
+    
+    buttonText: {
+        textAlign: 'center'
     }
+    
+    
 });

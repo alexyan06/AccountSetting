@@ -17,7 +17,7 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="IndividualNewsPage" // Temporarily setting this so that we can see our work!!
         screenOptions={{
-          headerShown: true, // Set to false to hide header
+          headerShown: false, // Set to false to hide header
         }}
       >
         <Stack.Screen name="Home" component={HomePage} />

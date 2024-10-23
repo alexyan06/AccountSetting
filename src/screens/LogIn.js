@@ -76,6 +76,10 @@ export default function App() {
 
     return (
         <View style={styles.container}>
+            <Image
+                source={require('./purduepaths.png')}  // Path to your image
+                style={styles.image}
+            />
             <Text style={styles.title}>Login or Sign Up</Text>
             <TextInput
                 style={styles.input}

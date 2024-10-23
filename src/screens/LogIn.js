@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, Image, TextInput, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 //export default GoogleSignInButton;
 
 //google button
@@ -120,20 +120,14 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         borderRadius: 5,
     },
+    Button: {
+        color: '#ec9a9a'
+    }
     loginButton: {
         backgroundColor: '#d06c64',
-        width: '80%',
-        paddingVertical: 15,
-        paddingHorizontal: 30,
-        borderRadius: 10,
-    },
-    buttonText: {
-        textAlign: 'center'
-    },
-    image: {
-        width: 100,  // Set the width
-        height: 100, // Set the height
-        resizeMode: 'cover',  // 'cover', 'contain', etc.
-        marginTop: -50,
+        width: '60%',          // Reduced width to make the button shorter
+        paddingVertical: 15,    // Reduced vertical padding
+        paddingHorizontal: 30,  // Reduced horizontal padding
+        borderRadius: 25,       // Increased border radius to make it rounder
     },
 });

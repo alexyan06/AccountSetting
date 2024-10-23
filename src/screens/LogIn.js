@@ -94,7 +94,9 @@ export default function App() {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            <Button title="Login" onPress={handleLogin} />
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
 
             <Text>Not registered yet? </Text>
             <Button title="Create Account" onPress={handleCreate} />

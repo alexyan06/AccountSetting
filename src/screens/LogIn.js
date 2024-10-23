@@ -76,7 +76,7 @@ export default function App() {
     return (
         <View style={styles.container}>
             <Image
-                source={{ uri: 'https://gratisography.com/wp-content/uploads/2024/03/gratisography-funflower-800x525.jpg' }} // URL of the image
+                source={require('./purduepaths.png')} // URL of the image
                 style={styles.image}
             />
             <Text style={styles.title}>Login or Sign Up</Text>

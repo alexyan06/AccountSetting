@@ -2,6 +2,13 @@ import * as React from "react";
 import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+const Circle = () => {
+    return <View style = {styles.circle} />
+};
+const Circle2 = () => {
+    return <View style = {styles.circle2} />
+};
+
 const Info = ({
                   title,
                   address,
@@ -13,16 +20,20 @@ const Info = ({
     return (
 
 
-
         <View style={styles.card}>
-            <View style ={styles.circle1}></View>
+
+
+
+
 
 
             <View style={styles.cardtwo}>
-                <Text style = {{
+
+
+                <Text style={{
 
                     color: 'white',
-                    fontSize:30,
+                    fontSize: 30,
                     fontWeight: 'bold',
                     textAlign: 'center',
                     marginTop: 70,
@@ -30,38 +41,49 @@ const Info = ({
                 }}>Campus News and Events</Text>
 
 
-            <Image
-                source={{ uri: imageURL }}
-                style={styles.image}
-            />
+                <Image
+                    source={{uri: imageURL}}
+                    style={styles.image}
+                />
 
 
-            <Text style={styles.title}>{title}</Text>
+                <Text style={styles.title}>{title}</Text>
 
 
                 <View style={styles.address_time}>
 
-                    <Text style = {styles.address}>{address}</Text>
-                    <Text style = {styles.time}>{time}  {date}</Text>
+                    <Text style={styles.address}>{address}</Text>
+                    <Text style={styles.time}>{time} {date}</Text>
                 </View>
 
-            </View>
-
-            <View style ={styles.analysiscard}>
-
-
-
-
-                <Text style = {styles.analysis} >{analysis}</Text>
-
-            </View>
         </View>
 
+        <View style = {styles.background}>
 
+            <Circle/>
+            <Circle2/>
+
+            <View style={styles.analysiscard}>
+
+
+
+
+                <Text style={styles.analysis}>{analysis}</Text>
+
+            </View>
+
+
+
+
+            </View>
+
+        </View>
 
 
     );
 }
+
+
 
 export default function IndividualNewsPage() {
     const navigation = useNavigation();
@@ -79,8 +101,7 @@ export default function IndividualNewsPage() {
                       address = "999 Anywhere St., Apt 555, Medford MA 02155"
                       time = "3:30PM"
                       date = "Oct 11, 2075"
-                      analysis = "Noenhabitant of that State for which he shall be chosen
-Th"
+                      analysis = "Ndafewf;aewfij;wej;ewjefiajew;fi"
                       imageURL = "https://media.istockphoto.com/id/1270059172/photo/purdue-welcome-center-at-purdue-university-purdue-university-is-a-public-research-university.jpg?s=612x612&w=0&k=20&c=0RK8E4Njaw6GTm56F7C2X2DIETGS_3Yt4g7WSDBGZi8="
                 />
             </View>
@@ -126,7 +147,7 @@ const styles = StyleSheet.create({
     image: {
 
         width: '100%', // Set image width
-        height: 150, // Set image height
+        height: 200, // Set image height
         borderRadius: 10, // Rounded corners for the image
         marginRight: 10, // Space between image and text
         marginTop: 30,
@@ -165,25 +186,45 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginRight: 30,
         marginLeft: 30,
-        minHeight: '35%',
+        minHeight: 250,
         marginBottom: 50,
+        zIndex: 1,
 
 
     },
     analysis:  {
         fontSize: 20,
         margin: 10,
+        zIndex: 2,
 
     },
-    circle1: {
-        position: 'absolute',
-        width: 200,
-        height: 200,
-        backgroundColor: 'rgba(255, 200, 200, 0.5)', // Light color with transparency
-        borderRadius: 100, // Makes it a perfect circle
-        top: -50,
-        left: -50,
+    circle: {
+        width: 300, // Size of the circle
+        height: 300,
+        borderRadius: 300 / 2, // Makes it a circle
+        backgroundColor: "#A5C2C4",
+        position: 'absolute', // Remove the circle from normal flow
+        bottom: -150, // Adjust this to position the circle behind the analysis card
+        left: -100, // Adjust this to control horizontal position
+        zIndex: 0, // Place it behind the analysis card
+        opacity: 0.5,
     },
+    circle2: {
+        width: 500, // Size of the circle
+        height: 500,
+        borderRadius: 500 / 2, // Makes it a circle
+        backgroundColor: "#A5C2C4",
+        position: 'absolute', // Remove the circle from normal flow
+        bottom: -250, // Adjust this to position the circle behind the analysis card
+        left: 100, // Adjust this to control horizontal position
+        zIndex: 1, // Place it behind the analysis card
+        opacity: 0.5,
+    },
+    background: {
+        position: 'relative',
+        flexDirection: 'column',
+    }
+
 });
 
 

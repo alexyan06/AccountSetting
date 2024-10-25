@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#fff',
         padding: 16,
         textAlign: 'left',
@@ -44,6 +43,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginBottom: 24,
         color: '#020202',
+        
     },
     input: {
         width: '80%',

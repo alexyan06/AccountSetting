@@ -98,11 +98,13 @@ export default function App() {
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
-            <Text>Not registered yet? </Text>
-            <Button title="Create Account" onPress={handleCreate} />
-
-        </View>
-    );
+            <View style={styles.row}>
+                <Text style={styles.text}>Not registered yet?</Text>
+                <TouchableOpacity onPress={handleCreate}>
+                    <Text style={styles.sameText}>Create an Account</Text>
+                </TouchableOpacity>
+            </View>
+        </View>);
 }
 
 const styles = StyleSheet.create({
@@ -142,4 +144,14 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',  // 'cover', 'contain', etc.
         marginTop: -50,
     },
+    row: {
+        flexDirection: 'row',   // Puts text and button in a row
+        alignItems: 'center',   // Vertically centers the text and button
+    },
+    text: {
+        marginRight: 5,
+    },
+    sameText: {
+        color: 'blue',
+    }
 });

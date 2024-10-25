@@ -9,6 +9,7 @@ import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
 import LogIn from "./src/screens/LogIn";
 import verification from "./src/screens/verification";
+import IntroPage from "./src/screens/IntroPage";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ export default function App() {
           headerShown: true, // Set to false to hide header
         }}
       >
+          <Stack.Screen name="IntroPage" component={IntroPage} />
           <Stack.Screen name="LogIn" component={LogIn} />
           <Stack.Screen name="verification" component={verification} />
           <Stack.Screen name="Home" component={HomePage} />

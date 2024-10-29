@@ -52,26 +52,20 @@ const GoogleSignInButton = () => {
 
 export default function App() {
     const navigation = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    //const [username, setUsername] = useState('');
+    //const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        if (username === 'admin' && password === 'password') {
-            Alert.alert('Login Successful');
-            console.log("Going to Home Page...");
-            navigation.navigate("Home");
-        } else if (username.indexOf("@gmail.com") >= 0) {
-            navigation.navigate("verification")
-        }
-        else {
+    const handleLoginEmail = () => {
+        Alert.alert("Waiting for verification...")
+    };
 
-
-            Alert.alert('Invalid Credentials');
-        }
+    const handleLoginPhone = () => {
+        console.log("Going to Home Page...");
+        navigation.navigate("verification");
     };
 
     const handleCreate = () => {
-        Alert.alert("Karthikeyan")
+        Alert.alert("Karthikeyan");
     };
 
     return (
@@ -80,22 +74,12 @@ export default function App() {
                 source={require('./purduepaths.png')}  // Path to your image
                 style={styles.image}
             />
-            <Text style={styles.title}>Login or Sign Up</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Username"
-                value={username}
-                onChangeText={setUsername}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.title}>Login With Email or Phone Number</Text>
+            <TouchableOpacity style={styles.emailButton} onPress={handleLoginEmail}>
+                <Text style={styles.buttonText}>Login With Email</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.phoneButton} onPress={handleLoginPhone}>
+                <Text style={styles.buttonText}>Login With Phone Number</Text>
             </TouchableOpacity>
 
             <View style={styles.row}>
@@ -128,7 +112,15 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         borderRadius: 5,
     },
-    loginButton: {
+    emailButton: {
+        backgroundColor: '#d06c64',
+        width: '80%',
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+        marginBottom: 10,
+    },
+    phoneButton: {
         backgroundColor: '#d06c64',
         width: '80%',
         paddingVertical: 15,
@@ -142,7 +134,8 @@ const styles = StyleSheet.create({
         width: 100,  // Set the width
         height: 100, // Set the height
         resizeMode: 'cover',  // 'cover', 'contain', etc.
-        marginTop: -50,
+        marginTop: -100,
+        marginBottom: 70,
     },
     row: {
         flexDirection: 'row',   // Puts text and button in a row

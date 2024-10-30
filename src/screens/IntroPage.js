@@ -57,7 +57,7 @@ export default function App() {
     };
     
     const handleSignUp = () => {
-        Alert.alert("Do Later")
+        navigation.navigate("signup");
     }
 
     return (

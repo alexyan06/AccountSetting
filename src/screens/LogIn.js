@@ -65,7 +65,7 @@ export default function App() {
     };
 
     const handleCreate = () => {
-        Alert.alert("Karthikeyan");
+        navigation.navigate("signup");
     };
 
     return (

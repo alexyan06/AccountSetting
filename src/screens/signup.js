@@ -42,21 +42,16 @@ export default function signup() {
                 value={username}
                 onChangeText={setUsername}
             />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
             <View style={styles.row}>
-                <Text style={styles.text}>Not registered yet?</Text>
+                <TouchableOpacity style={styles.loginButton} onPress={handleCreate}>
+                    <Text style={styles.sameText}>E-Mail</Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={handleCreate}>
-                    <Text style={styles.sameText}>Create an Account</Text>
+                    <Text style={styles.sameText}>Password</Text>
                 </TouchableOpacity>
             </View>
         </View>);

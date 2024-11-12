@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import CustomMap from "../components/CustomMap";
+import BottomNavbar from "../components/BottomNavbar";
 
 const highlightedBuildings = [
   {
-    name: "Earhart Hall",
+    name: "Hillenbrand Hall",
     coordinates: [
       {
         latitude: 40.4268661,
@@ -462,6 +463,7 @@ export default function MapPage() {
           </View> */}
         </View>
       )}
+      <BottomNavbar />
     </View>
   );
 }
@@ -469,7 +471,7 @@ export default function MapPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D1FAE5", // Equivalent to bg-green-100
+    backgroundColor: "#fff",
   },
   popup: {
     position: "absolute",

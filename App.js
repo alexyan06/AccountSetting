@@ -11,6 +11,7 @@ import LogIn from "./src/screens/LogIn";
 import verification from "./src/screens/verification";
 import IntroPage from "./src/screens/IntroPage";
 import signup from "./src/screens/signup";
+import SearchPage from "./src/screens/SearchPage";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -18,7 +19,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="LogIn"
         screenOptions={{
           headerShown: true, // Set to false to hide header
         }}
@@ -30,7 +31,8 @@ export default function App() {
           <Stack.Screen name="signup" component={signup} />
         <Stack.Screen name="React Native Maps" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />
-        <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />
+          <Stack.Screen name="Search" component={SearchPage} />
+          <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

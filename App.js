@@ -8,6 +8,7 @@ import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
 import SearchPage from "./src/screens/SearchPage";
+import IndividualNewsPage from "./src/screens/IndividualNewsPage";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerShown: true, // Set to false to hide header
+          headerShown: false, // Set to false to hide header
         }}
       >
         <Stack.Screen name="Home" component={HomePage} />
@@ -25,6 +26,10 @@ export default function App() {
         <Stack.Screen name="NotFound" component={NotFoundPage} />
         <Stack.Screen name="Search" component={SearchPage} />
         <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />
+        <Stack.Screen
+          name="IndividualNewsPage"
+          component={IndividualNewsPage}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

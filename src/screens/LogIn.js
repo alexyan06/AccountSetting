@@ -61,7 +61,6 @@ export default function App() {
 
     const handleLoginPhone = () => {
         console.log("Going to Home Page...");
-        navigation.navigate("verification");
     };
 
     const handleCreate = () => {

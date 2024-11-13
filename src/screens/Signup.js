@@ -8,7 +8,7 @@ import { View, Text, Image, TextInput, Button, StyleSheet, TouchableOpacity, Ale
 export default function Signup() {
     const navigation = useNavigation();
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleLogin = () => {
         if (username === 'admin' && password === 'password') {
@@ -19,14 +19,17 @@ export default function Signup() {
             navigation.navigate("verification")
         }
         else {
-
-
             Alert.alert('Invalid Credentials');
         }
     };
 
     const handleCreate = () => {
-        Alert.alert("Karthikeyan")
+        if (username === '' || email === '') {
+            Alert.alert('Please enter a valid email/username!');
+        }
+        else {
+            navigation.navigate("LogIn")
+        }
     };
 
     return (
@@ -35,25 +38,22 @@ export default function Signup() {
                 source={require('./purduepaths.png')}  // Path to your image
                 style={styles.image}
             />
-            <Text style={styles.title}>Login or Sign Up</Text>
+            <Text style={styles.title}>Sign Up</Text>
             <TextInput
                 style={styles.input}
-                placeholder="Username"
+                placeholder="Email: john@gmail.com"
                 value={username}
                 onChangeText={setUsername}
             />
-            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Username: john05"
+                value={email}
+                onChangeText={setEmail}
+            />
+            <TouchableOpacity style={styles.loginButton} onPress={handleCreate}>
+                <Text style={styles.buttonText}>Create Account</Text>
             </TouchableOpacity>
-
-            <View style={styles.row}>
-                <TouchableOpacity style={styles.loginButton} onPress={handleCreate}>
-                    <Text style={styles.sameText}>E-Mail</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleCreate}>
-                    <Text style={styles.sameText}>Password</Text>
-                </TouchableOpacity>
-            </View>
         </View>);
 }
 

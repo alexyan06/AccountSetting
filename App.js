@@ -29,7 +29,7 @@ export default function App() {
           <Stack.Screen name="verification" component={verification} />
           <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="signup" component={signup} />
-        <Stack.Screen name="Maps" component={MapPage} />
+        <Stack.Screen name="Map" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />
           <Stack.Screen name="Search" component={SearchPage} />
           <Stack.Screen name="NewsAndEventsPage" component={NewsAndEventsPage} />

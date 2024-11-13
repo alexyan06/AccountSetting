@@ -8,9 +8,9 @@ import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
 import LogIn from "./src/screens/LogIn";
-import verification from "./src/screens/verification";
+import Verification from "./src/screens/Verification";
 import IntroPage from "./src/screens/IntroPage";
-import signup from "./src/screens/signup";
+import Signup from "./src/screens/Signup";
 import SearchPage from "./src/screens/SearchPage";
 
 export default function App() {
@@ -26,9 +26,9 @@ export default function App() {
       >
           <Stack.Screen name="IntroPage" component={IntroPage} />
           <Stack.Screen name="LogIn" component={LogIn} />
-          <Stack.Screen name="verification" component={verification} />
+          <Stack.Screen name="Verification" component={Verification} />
           <Stack.Screen name="Home" component={HomePage} />
-          <Stack.Screen name="signup" component={signup} />
+          <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Map" component={MapPage} />
         <Stack.Screen name="NotFound" component={NotFoundPage} />
           <Stack.Screen name="Search" component={SearchPage} />

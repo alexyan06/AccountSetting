@@ -5,7 +5,7 @@ import { View, Text, Image, TextInput, Button, StyleSheet, TouchableOpacity, Ale
 
 //google button
 
-export default function signup() {
+export default function Signup() {
     const navigation = useNavigation();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

@@ -60,11 +60,12 @@ export default function App() {
     };
 
     const handleLoginPhone = () => {
-        console.log("Going to Home Page...");
+        console.log("Going to Verification Page...");
+        navigation.navigate("Verification")
     };
 
     const handleCreate = () => {
-        navigation.navigate("signup");
+        navigation.navigate("Signup");
     };
 
     return (

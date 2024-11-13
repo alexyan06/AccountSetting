@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import HomePage from "./HomePage";
 
-export default function App() {
+export default function Verification() {
     const navigation = useNavigation();
     const [code, checkCode] = useState('');
     const [password, setPassword] = useState('');

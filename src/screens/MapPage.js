@@ -161,6 +161,7 @@ export default function MapPage() {
           </View>
         </View>
       )}
+      <BottomNavbar />
     </View>
   );
 }
@@ -562,7 +563,7 @@ export default function MapPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D1FAE5", // Equivalent to bg-green-100
+    backgroundColor: "#fff",
   },
   popup: {
     position: "absolute",

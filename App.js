@@ -8,6 +8,7 @@ import NotFoundPage from "./src/screens/NotFoundPage";
 import MapPage from "./src/screens/MapPage";
 import NewsAndEventsPage from "./src/screens/NewsAndEventsPage";
 import SearchPage from "./src/screens/SearchPage";
+import IndividualNewsPage from "./src/screens/IndividualNewsPage";
 
 export default function App() {
   const Stack = createStackNavigator();

@@ -14,7 +14,7 @@ npm install
 npm start
 ```
 
-#### Calling backend from Expo Go
+#### Calling local backend from Expo Go
 
 You will need to run the dotnet backend in your computer in localhost
 

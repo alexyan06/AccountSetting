@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert, Image } from "react-native";
 import HomePage from "./HomePage";
 
 export default function VerificationPage() {
@@ -12,15 +12,22 @@ export default function VerificationPage() {
     navigation.navigate("Home");
   };
 
+  const handleResend = () => {
+    navigation.navigate("Home");
+  }
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
         <View style={styles.circle1} />
         <View style={styles.circle2} />
         <View style={styles.circle3} />
+
         <Text style={styles.title}>Verification</Text>
+        <Image style={styles.icon} source={require('../../assets/verification-page-icon.png')} />
 
         <View style={styles.titleSpacer} />
+
         <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
         <TextInput
           style={styles.input}
@@ -32,7 +39,7 @@ export default function VerificationPage() {
           placeholderTextColor="#555"
         />
 
-        <Text style={styles.resendButton}>Resend Code</Text>
+        <Text onpress={handleResend} style={styles.resendButton}>Resend Code</Text>
 
         <View style={styles.buttonSpacer} />
 
@@ -86,15 +93,26 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
     color: "#065758",
+    textShadowColor: '#00000040',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+  icon: {
+    maginTop: 20,
+    width: 40,
+    height: 52,
   },
   titleSpacer: {
-    height: 170,
+    height: 110,
   },
   message: {
     fontSize: 16,
     color: "#000",
     marginBottom: 20,
     textAlign: "center",
+    textShadowColor: '#00000040',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
   },
   input: {
     height: 90,
@@ -114,11 +132,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
     textAlign: "center",
     justifyContent: "center",
-    width: 100,
-    height: 20,
+    width: 120,
+    height: 25,
     borderRadius: 25,
     color: '#fff',
-    fontSize: 11,
+    fontSize: 14,
   },
   buttonSpacer: {
     height: 190,
@@ -134,6 +152,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     color: '#fff',
     fontSize: 24,
+    textShadowColor: '#00000040',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
   },
   bottomSpacer: {
     height: 50,

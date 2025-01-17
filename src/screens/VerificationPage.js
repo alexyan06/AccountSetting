@@ -12,8 +12,14 @@ export default function VerificationPage() {
     navigation.navigate("Home");
   };
 
+  const [defaultMessage, resentMessage] = useState("Please enter the verification code sent to j*******@purdue.edu");
+  const [defaultMessageStyle, resentMessageStyle] = useState(styles.defaultMessage);
+
   const handleResend = () => {
-    navigation.navigate("Home");
+    resentMessage("The verification code has been resent to j*******@purdue.edu");
+    resentMessageStyle(styles.resentMessage);
+
+    // navigation.navigate("Home");
   }
 
   const titleSpacerHeight = useRef(new Animated.Value(110)).current;
@@ -79,7 +85,7 @@ export default function VerificationPage() {
 
         <Animated.View style={[{ height: titleSpacerHeight }]} />
 
-        <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
+        <Text style={defaultMessageStyle}>{defaultMessage}</Text>
         <TextInput
           style={styles.input}
           placeholder="______"
@@ -156,7 +162,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 52,
   },
-  message: {
+  defaultMessage: {
     fontSize: 16,
     color: "#000",
     marginBottom: 20,
@@ -165,7 +171,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
   },
-  errorMessage: {
+  resentMessage: {
     fontSize: 16,
     color: "#BF6E65",
     marginBottom: 20,

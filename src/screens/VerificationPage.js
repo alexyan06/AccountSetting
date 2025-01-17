@@ -90,7 +90,7 @@ export default function VerificationPage() {
           placeholderTextColor="#555"
         />
 
-        <Text onPress={handleResend} style={styles.resendButton}>Resend Code</Text> {/* will not trigger function for some reason */}
+        <Text onPress={handleResend} style={styles.resendButton}>Resend Code</Text>
 
         <Animated.View style={[{ height: buttonSpacerHeight }]} />
 

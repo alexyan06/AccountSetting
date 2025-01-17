@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, Button, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert } from "react-native";
 import HomePage from "./HomePage";
 
 export default function VerificationPage() {
@@ -13,30 +13,35 @@ export default function VerificationPage() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.circle1} />
-      <View style={styles.circle2} />
-      <View style={styles.circle3} />
-      <Text style={styles.title}>Verification</Text>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View style={styles.container}>
+        <View style={styles.circle1} />
+        <View style={styles.circle2} />
+        <View style={styles.circle3} />
+        <Text style={styles.title}>Verification</Text>
 
-      <View style={styles.titleSpacer} />
-      <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="______"
-        value={code}
-        onChangeText={checkCode}
-      />
+        <View style={styles.titleSpacer} />
+        <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="______"
+          value={code}
+          keyboardType="numeric"
+          onChangeText={checkCode}
+          maxLength={6}
+          placeholderTextColor="#555"
+        />
 
-      <Text style={styles.resendButton}>Resend Code</Text>
+        <Text style={styles.resendButton}>Resend Code</Text>
 
-      <View style={styles.buttonSpacer} />
+        <View style={styles.buttonSpacer} />
 
-      <Text onPress={handleVerify} style={styles.verifyButton}>Verify</Text>
+        <Text onPress={handleVerify} style={styles.verifyButton}>Verify</Text>
 
-      <View style={styles.bottomSpacer} />
+        <View style={styles.bottomSpacer} />
 
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -87,18 +92,19 @@ const styles = StyleSheet.create({
   },
   message: {
     fontSize: 16,
-    color: "#666",
+    color: "#000",
     marginBottom: 20,
     textAlign: "center",
   },
   input: {
     height: 90,
-    borderColor: '#bdc3c7', // Light gray border
+    borderColor: '#000',
+    color: "#555",
     borderWidth: 1,
     borderRadius: 25,
     fontSize: 36,
-    textAlign: "center",
-    paddingLeft: 15,
+    letterSpacing: 25,
+    paddingLeft: '10%',
     width: '85%',
     marginBottom: 20,
   },
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     textAlign: "center",
     justifyContent: "center",
-    width: 375,
+    width: '85%',
     height: 70,
     borderRadius: 25,
     color: '#fff',

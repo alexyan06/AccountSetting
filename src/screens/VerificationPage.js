@@ -18,8 +18,6 @@ export default function VerificationPage() {
   const handleResend = () => {
     resentMessage("The verification code has been resent to j*******@purdue.edu");
     resentMessageStyle(styles.resentMessage);
-
-    // navigation.navigate("Home");
   }
 
   const titleSpacerHeight = useRef(new Animated.Value(110)).current;

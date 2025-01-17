@@ -14,6 +14,9 @@ export default function VerificationPage() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.circle1} />
+      <View style={styles.circle2} />
+      <View style={styles.circle3} />
       <Text style={styles.title}>Verify Account</Text>
       <Text>Enter the security code sent to your phone number</Text>
       <TextInput
@@ -37,6 +40,33 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 16,
     textAlign: "left",
+  },
+  circle1: {
+    position: "absolute",
+    width: 420,
+    height: 420,
+    borderRadius: 420 / 2,
+    backgroundColor: "#A5C2C480",
+    left: -124,
+    top: 543,
+  },
+  circle2: {
+    position: "absolute",
+    width: 300,
+    height: 300,
+    borderRadius: 300 / 2,
+    backgroundColor: "#A5C2C480",
+    left: 194,
+    top: -158,
+  },
+  circle3: {
+    position: "absolute",
+    width: 300,
+    height: 300,
+    borderRadius: 300 / 2,
+    backgroundColor: "#A5C2C480",
+    left: 185,
+    top: 665,
   },
   title: {
     fontSize: 24,

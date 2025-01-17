@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert, Image } from "react-native";
+import { Animated, View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert, Image, Touchable } from "react-native";
 import HomePage from "./HomePage";
 
 export default function VerificationPage() {
@@ -16,6 +16,57 @@ export default function VerificationPage() {
     navigation.navigate("Home");
   }
 
+  const titleSpacerHeight = useRef(new Animated.Value(110)).current;
+  const buttonSpacerHeight = useRef(new Animated.Value(190)).current;
+  const bottomSpacerHeight = useRef(new Animated.Value(50)).current;
+  const animationDuration = 150;
+
+  useEffect(() => {
+    const keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', handleKeyboardShow);
+    const keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', handleKeyboardHide);
+
+    return () => {
+      keyboardWillShowListener.remove();
+      keyboardWillHideListener.remove();
+    };
+  }, []);
+
+  const handleKeyboardShow = () => {
+    Animated.timing(titleSpacerHeight, {
+      toValue: 30,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(buttonSpacerHeight, {
+      toValue: 30,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(bottomSpacerHeight, {
+      toValue: 0,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const handleKeyboardHide = () => {
+    Animated.timing(titleSpacerHeight, {
+      toValue: 110,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(buttonSpacerHeight, {
+      toValue: 190,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(bottomSpacerHeight, {
+      toValue: 50,
+      duration: animationDuration,
+      useNativeDriver: false,
+    }).start();
+  };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
@@ -26,26 +77,26 @@ export default function VerificationPage() {
         <Text style={styles.title}>Verification</Text>
         <Image style={styles.icon} source={require('../../assets/verification-page-icon.png')} />
 
-        <View style={styles.titleSpacer} />
+        <Animated.View style={[{ height: titleSpacerHeight }]} />
 
         <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
         <TextInput
           style={styles.input}
           placeholder="______"
           value={code}
-          keyboardType="numeric"
+          keyboardType="number-pad"
           onChangeText={checkCode}
           maxLength={6}
           placeholderTextColor="#555"
         />
 
-        <Text onpress={handleResend} style={styles.resendButton}>Resend Code</Text>
+        <Text onPress={handleResend} style={styles.resendButton}>Resend Code</Text> {/* will not trigger function for some reason */}
 
-        <View style={styles.buttonSpacer} />
+        <Animated.View style={[{ height: buttonSpacerHeight }]} />
 
         <Text onPress={handleVerify} style={styles.verifyButton}>Verify</Text>
 
-        <View style={styles.bottomSpacer} />
+        <Animated.View style={[{ height: bottomSpacerHeight }]} />
 
       </View>
     </TouchableWithoutFeedback>
@@ -55,7 +106,6 @@ export default function VerificationPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
     padding: 16,
@@ -102,12 +152,18 @@ const styles = StyleSheet.create({
     width: 40,
     height: 52,
   },
-  titleSpacer: {
-    height: 110,
-  },
   message: {
     fontSize: 16,
     color: "#000",
+    marginBottom: 20,
+    textAlign: "center",
+    textShadowColor: '#00000040',
+    textShadowOffset: { width: 0, height: 4 },
+    textShadowRadius: 4,
+  },
+  errorMessage:{
+    fontSize: 16,
+    color: "#BF6E65",
     marginBottom: 20,
     textAlign: "center",
     textShadowColor: '#00000040',
@@ -138,9 +194,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
   },
-  buttonSpacer: {
-    height: 190,
-  },
   verifyButton: {
     backgroundColor: '#065758',
     paddingVertical: 20,
@@ -155,8 +208,5 @@ const styles = StyleSheet.create({
     textShadowColor: '#00000040',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
-  },
-  bottomSpacer: {
-    height: 50,
   },
 });

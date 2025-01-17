@@ -17,18 +17,25 @@ export default function VerificationPage() {
       <View style={styles.circle1} />
       <View style={styles.circle2} />
       <View style={styles.circle3} />
-      <Text style={styles.title}>Verify Account</Text>
-      <Text>Enter the security code sent to your phone number</Text>
+      <Text style={styles.title}>Verification</Text>
+
+      <View style={styles.titleSpacer} />
+      <Text style={styles.message}>Please enter the verification code sent to j*******@purdue.edu</Text>
       <TextInput
         style={styles.input}
-        placeholder="XXX-XXX"
+        placeholder="______"
         value={code}
         onChangeText={checkCode}
       />
 
-      <Button title="Verify" onPress={handleVerify} />
+      <Text style={styles.resendButton}>Resend Code</Text>
 
-      <Text>Resend Code</Text>
+      <View style={styles.buttonSpacer} />
+
+      <Text onPress={handleVerify} style={styles.verifyButton}>Verify</Text>
+
+      <View style={styles.bottomSpacer} />
+
     </View>
   );
 }
@@ -37,6 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "#fff",
     padding: 16,
     textAlign: "left",
@@ -69,19 +77,59 @@ const styles = StyleSheet.create({
     top: 665,
   },
   title: {
-    fontSize: 24,
-    marginBottom: 24,
-    color: "#020202",
+    fontSize: 40,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "#065758",
+  },
+  titleSpacer: {
+    height: 170,
+  },
+  message: {
+    fontSize: 16,
+    color: "#666",
+    marginBottom: 20,
+    textAlign: "center",
   },
   input: {
-    width: "80%",
-    padding: 10,
+    height: 90,
+    borderColor: '#bdc3c7', // Light gray border
     borderWidth: 1,
-    borderColor: "#020202",
-    marginBottom: 12,
-    borderRadius: 5,
+    borderRadius: 25,
+    fontSize: 36,
+    textAlign: "center",
+    paddingLeft: 15,
+    width: '85%',
+    marginBottom: 20,
   },
-  Button: {
-    color: "#ec9a9a",
+  resendButton: {
+    backgroundColor: '#BF6E65',
+    paddingVertical: 4,
+    paddingHorizontal: 0,
+    textAlign: "center",
+    justifyContent: "center",
+    width: 100,
+    height: 20,
+    borderRadius: 25,
+    color: '#fff',
+    fontSize: 11,
+  },
+  buttonSpacer: {
+    height: 190,
+  },
+  verifyButton: {
+    backgroundColor: '#065758',
+    paddingVertical: 20,
+    paddingHorizontal: 25,
+    textAlign: "center",
+    justifyContent: "center",
+    width: 375,
+    height: 70,
+    borderRadius: 25,
+    color: '#fff',
+    fontSize: 24,
+  },
+  bottomSpacer: {
+    height: 50,
   },
 });

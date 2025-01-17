@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Animated, View, Text, TextInput, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert, Image, Touchable } from "react-native";
+import { Animated, View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Button, StyleSheet, Alert, Image, Touchable } from "react-native";
 import HomePage from "./HomePage";
 
 export default function VerificationPage() {
@@ -90,11 +90,15 @@ export default function VerificationPage() {
           placeholderTextColor="#555"
         />
 
-        <Text onPress={handleResend} style={styles.resendButton}>Resend Code</Text>
+        <TouchableOpacity onPress={handleResend} style={styles.resendButtonContainer}>
+          <Text style={styles.resendButtonText}>Resend Code</Text>
+        </TouchableOpacity>
 
         <Animated.View style={[{ height: buttonSpacerHeight }]} />
 
-        <Text onPress={handleVerify} style={styles.verifyButton}>Verify</Text>
+        <TouchableOpacity onPress={handleVerify} style={styles.verifyButtonContainer}>
+          <Text style={styles.verifyButtonText}>Verify</Text>
+        </TouchableOpacity>
 
         <Animated.View style={[{ height: bottomSpacerHeight }]} />
 
@@ -161,7 +165,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
   },
-  errorMessage:{
+  errorMessage: {
     fontSize: 16,
     color: "#BF6E65",
     marginBottom: 20,
@@ -182,31 +186,36 @@ const styles = StyleSheet.create({
     width: '85%',
     marginBottom: 20,
   },
-  resendButton: {
+  resendButtonContainer: {
     backgroundColor: '#BF6E65',
+    color: "#fff",
     paddingVertical: 4,
     paddingHorizontal: 0,
-    textAlign: "center",
+    alignItems: "center",
     justifyContent: "center",
     width: 120,
     height: 25,
     borderRadius: 25,
+  },
+  resendButtonText: {
     color: '#fff',
     fontSize: 14,
   },
-  verifyButton: {
+  verifyButtonContainer: {
     backgroundColor: '#065758',
     paddingVertical: 20,
     paddingHorizontal: 25,
-    textAlign: "center",
+    alignItems: "center",
     justifyContent: "center",
     width: '85%',
     height: 70,
     borderRadius: 25,
+  },
+  verifyButtonText: {
     color: '#fff',
     fontSize: 24,
     textShadowColor: '#00000040',
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
-  },
+  }
 });
